@@ -6,6 +6,7 @@ import com.cybertek.utilities.Driver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class WebDriverWaitPractice {
@@ -53,5 +54,10 @@ public class WebDriverWaitPractice {
         dynamicLoad1Page.submitButton.click();
         //8. Assert “Your password is invalid!” text is displayed.
         Assert.assertTrue(dynamicLoad1Page.errorMessage.isDisplayed());
+    }
+
+    @AfterMethod
+    public  void tearDownMethod() {
+        Driver.closeDriver();
     }
 }
